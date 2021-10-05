@@ -1,0 +1,17 @@
+version: "3.1"
+
+services:
+  debug:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        RELEASE_DATE: "2021-10-03"
+        VERSION: "v0.0.1"
+    container_name: debug
+    environment:
+      CINIT_ENV: dev
+      CINIT_DEBUG: "true"
+      CINIT_SOCKADDR: "/tmp/cinitd.sock"
+    volumes:
+      - ./:/data

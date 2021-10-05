@@ -1,0 +1,3 @@
+name: command1
+command: sleep
+args: 10000
