@@ -37,7 +37,7 @@ func NewServerFactory(ctx context.Context, rcmd *channels.Remote, s string, l *l
 func (s *Server) ListenBackground() {
 	log := s.logger.WithFields(logrus.Fields{
 		"Component": "SocketServer",
-		"Stage":     "Init",
+		"Part":      "Init",
 	})
 	log.Info("Server initializing")
 

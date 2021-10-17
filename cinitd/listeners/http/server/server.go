@@ -37,6 +37,7 @@ func NewServerFactory(ctx context.Context, rcmd *channels.Remote, p, i string, l
 func (s *Server) ListenBackground() {
 	log := s.logger.WithFields(logrus.Fields{
 		"Component": "HTTP Server",
+		"Part":      "Init",
 	})
 	server := &http.Server{
 		Addr:    s.listenAt + ":" + s.port,
@@ -45,6 +46,7 @@ func (s *Server) ListenBackground() {
 
 	s.wg.Add(1)
 	go func(wg *sync.WaitGroup, srv *http.Server) {
+		log.Info("Server initializing")
 		err := srv.ListenAndServe()
 		if err != nil {
 			if err.Error() != "http: Server closed" {

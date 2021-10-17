@@ -18,10 +18,10 @@ RUN make deps
 RUN make cinitd VERSION="${VERSION}" 
 RUN make cli VERSION="${VERSION}" 
 
-RUN install "/opt/cinit-daemon" /usr/bin/cinit-daemon
-RUN install /opt/cinit /usr/bin/cinit
+RUN install "/opt/bin/cinit-daemon" /usr/bin/cinit-daemon
+RUN install /opt/bin/cinit /usr/bin/cinit
 
-RUN rm "/opt/cinit-daemon" /opt/cinit
+RUN rm "/opt/bin/cinit-daemon" /opt/bin/cinit
 
 RUN mkdir -vp /data
 VOLUME [ "/data" ]
